@@ -60,4 +60,10 @@ public class Bid {
     @CreationTimestamp
     private Date createdDate;
 
+    public String newMethod(){return "Hello";};
+
+    public boolean isEmpty(String value) {
+        return value.length() == 0;
+    }
+
 }

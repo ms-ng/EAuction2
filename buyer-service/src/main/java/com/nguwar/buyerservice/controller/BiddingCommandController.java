@@ -14,8 +14,11 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.math.BigDecimal;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
 @RestController
+@CrossOrigin
 public class BiddingCommandController {
 
     private final Logger logger = LoggerFactory.getLogger(BiddingCommandController.class);
@@ -30,6 +33,8 @@ public class BiddingCommandController {
     @PostMapping("/e-auction/api/v1/buyer/place-bid")
     @CircuitBreaker(name = "circuitBreaker", fallbackMethod = "fallbackResponse")
     public ResponseEntity<String> placeBid(@Valid @RequestBody NewBidDTO newBid){
+        Bid bid = new Bid();
+        Function<String, Boolean> supplier = String::isEmpty;
 
         try {
             Bid createdBid = biddingCommandService.addBid(newBid);

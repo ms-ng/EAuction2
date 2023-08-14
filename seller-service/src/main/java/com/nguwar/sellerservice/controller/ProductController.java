@@ -27,6 +27,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @RestController
+@CrossOrigin
 public class ProductController {
 
     private final Logger logger = LoggerFactory.getLogger(ProductController.class);

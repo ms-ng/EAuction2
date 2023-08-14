@@ -9,6 +9,8 @@ services:
       POSTGRES_DB: productdb
     ports:
       - "15432:5432"
+    volumes:
+      - testvolume:/var/lib/postgresql/data
 
   biddingdb:
     container_name: biddingdb
@@ -30,4 +32,8 @@ services:
       PGADMIN_DEFAULT_PASSWORD: postgres
     ports:
       - "5050:80"
+
+volumes:
+  testvolume:
+    external: true
 

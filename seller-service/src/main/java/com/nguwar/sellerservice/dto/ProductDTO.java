@@ -1,5 +1,6 @@
 package com.nguwar.sellerservice.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,5 +17,6 @@ public class ProductDTO {
     private String description;
     private String productCategory;
     private BigDecimal startingPrice;
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
     private LocalDateTime bidEndDate;
 }
